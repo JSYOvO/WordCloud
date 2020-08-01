@@ -1,5 +1,7 @@
 import React from 'react';
 import {withStyles} from '@material-ui/core/styles';
+import {Link as RouterLink} from 'react-router-dom';
+import Link from '@material-ui/core/Link';
 import AppBar from '@material-ui/core/AppBar';
 import Drawer from '@material-ui/core/Drawer';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -33,19 +35,31 @@ class AppShell extends React.Component {
     render() {
         const {classes} = this.props;
         return(
-            <div className = {classes.root}>
-                <AppBar position="static">
-                    <IconButton className = {classes.menuButton} color = "inherit" onClick = {this.handleDrawerToggle}>
-                        <MenuIcon/> 
-                    </IconButton>
-                </AppBar>
-                <Drawer open = {this.state.toggle}>
-                    <MenuItem onClick = {this.handleDrawerToggle}>
-                        Home
-                    </MenuItem>
-                </Drawer>
+            <div>
+              <div className = {classes.root}>
+                    <AppBar position="static">
+                        <IconButton className = {classes.menuButton} color = "inherit" onClick = {this.handleDrawerToggle}>
+                            <MenuIcon/> 
+                        </IconButton>
+                    </AppBar>
+                    <Drawer open = {this.state.toggle}>
+                        <MenuItem onClick = {this.handleDrawerToggle}>
+                            <Link component = {RouterLink} to = '/'>
+                                Home
+                            </Link>
+                            <Link component = {RouterLink} to = '/texts'>
+                                Texts
+                            </Link>
+                            <Link component = {RouterLink} to = '/words'>
+                                Words
+                            </Link>
+                        </MenuItem>
+                    </Drawer>
+                </div>
+                <div if = "content" style = {{margin : 'auto', marginTop : '20px'}}>
+                    {React.cloneElement(this.props.children)}
+                </div>
             </div>
-
         )
     }
 }
