@@ -9,7 +9,8 @@
     "firebase-tools": "^8.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "react-text-truncate": "^0.16.0"
   },
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server",
