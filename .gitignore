@@ -4,3 +4,5 @@ build
 .firebaserc
 firebase.json
 pythonSrc/outputs
+*.txt
+yarn-error.log
